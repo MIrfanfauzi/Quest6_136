@@ -81,6 +81,25 @@ fun FormSiswa(
                     .padding(all = 20.dp)
                     .width(width = 250.dp), thickness = Thickness, color = Color.Red
             )
+            Row{
+                pilihanJK.forEach {
+                        item->
+                    Row(verticalAlignment = Alignment.CenterVertically){
+                        RadioButton(
+                            selected = false,
+                            onClick = {item}
+                        )
+                        Text(text = item)
+                    }
+
+                }
+            }
+            HorizontalDivider(modifier = Modifier
+                .padding(all = 20.dp)
+                .width(width = 250.dp),
+                thickness = 1.dp,
+                color = Color.Red
+            )
         }
     }
 }
