@@ -6,18 +6,22 @@ import com.example.arsitekturmvm.model.Siswa
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.asStateFlow
+
+class SiswaViewModel : ViewModel() {
 
 
+    private val _statusUI = MutableStateFlow(Siswa())
 
-class SiswaViewModel: ViewModel() {
-    private val _StatusUI = MutableStateFlow(value = Siswa())
     val statusUI: StateFlow<Siswa> = _statusUI.asStateFlow()
 
-    fun setSiswa(ls:MutableStateList<R.string>) {
-        _StatusUI.update { statusSaatIni ->
-        statusSaatIni.copy(name = ls[0], gender = ls[1], alamat = ls[2])
+    fun saveDataSiswa(ls: MutableList<String>) {
+        _statusUI.update { statusSaatIni ->
+            statusSaatIni.copy(
+                nama = ls[0],
+                gender = ls[1],
+                alamat = ls[2]
+            )
+        }
     }
-    }
-
-
 }
